@@ -158,16 +158,3 @@ def flip_player():
 
 play_game() #function to be able to play the game
 
-
-
-
-#board
-    #make a list, not a tuple - we want mutability
-#display board
-#play game
-    #check win
-        #check rows
-        #check diagonals
-    #check tie
-#flip player
-#proceed until game over
