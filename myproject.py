@@ -20,7 +20,7 @@ def display_board():
     print(board[3] + " | " + board[4] + " | " + board[5])
     print(board[6] + " | " + board[7] + " | " + board[8])
 
-#handle a turn of one of the two players
+#handle a turn of one of the two player
 def handle_turn(current_player):
     print(current_player + "'s turn.")
     while True:
