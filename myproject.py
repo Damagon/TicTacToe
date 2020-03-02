@@ -1,5 +1,3 @@
-#TODO make tic tac toe game
-
 #Tic Tac Toe Game
 # -------------Global Variables  ---------------
 #if game is still going
