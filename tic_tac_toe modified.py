@@ -167,6 +167,7 @@ def computer_turn(computer_char):
                 if board[rand_select] == "-":
                     continue_turn = False
             board[rand_select] = computer_char
+            return
 
 
     else:  #if computer is O
@@ -176,9 +177,11 @@ def computer_turn(computer_char):
                 corner_select = random.choice(corners)
                 board[corner_select] = False
                 second_o_turn = False
+                return
             else:
                 board[center] = computer_char
                 second_o_turn = False
+                return
         if not second_o_turn:
             continue_o_turn = True
             while continue_o_turn:
