@@ -12,6 +12,7 @@ import random
 board = ["-", "-", "-",
          "-", "-", "-",
          "-", "-", "-"]
+second_turn = True
 Playing_with_AI = False
 center = 4
 corners = [0, 2, 6, 8]
@@ -110,17 +111,16 @@ def human_v_computer(current_char):
         print_board()
         finished = check_victory_cond(current_char)
         if finished:
-            still_playing = False
+            break
         current_char = flip_char(current_char)
         computer_turn(current_char)
         print_board()
         finished = check_victory_cond(current_char)
         if finished:
-            still_playing = False
-
+           break
 def computer_turn(computer_char):
+    global second_turn
     if computer_char == "X":
-        second_turn = True
         while second_turn:
             #if the opponent selects an edge piece
             if board[4] =="X" and board[1] == "O": #if opponent marks an edge
@@ -160,6 +160,7 @@ def computer_turn(computer_char):
                 board[0] = computer_char
                 second_turn = False
                 return
+
         if not second_turn:
             continue_turn = True
             while continue_turn:
@@ -167,7 +168,6 @@ def computer_turn(computer_char):
                 if board[rand_select] == "-":
                     continue_turn = False
             board[rand_select] = computer_char
-            return
 
 
     else:  #if computer is O
@@ -175,13 +175,11 @@ def computer_turn(computer_char):
         while second_o_turn:
             if board[center] == "X":
                 corner_select = random.choice(corners)
-                board[corner_select] = False
+                board[corner_select] = computer_char
                 second_o_turn = False
-                return
             else:
                 board[center] = computer_char
                 second_o_turn = False
-                return
         if not second_o_turn:
             continue_o_turn = True
             while continue_o_turn:
@@ -214,7 +212,7 @@ def handle_turn(current_char):
         if Playing_with_AI:
             human_v_computer(current_char)
             still_playing = False
-        else:
+        elif not Playing_with_AI:
             current_char = flip_char(current_char)
             get_pos(current_char)
             print_board()
@@ -270,8 +268,6 @@ def flip_char(current_char):
     else:
         current_char = "X"
     return  current_char
-
-
 
 def play_game():
     print_board()
