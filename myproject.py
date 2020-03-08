@@ -135,7 +135,7 @@ def check_diagonals():
     if diagonal_1:
         return board[0]
     elif diagonal_2:
-        return board[1]
+        return board[2]
 
     return
 
@@ -154,7 +154,6 @@ def flip_player():
     elif current_player == "O":
         current_player = "X"
     return
-
 
 play_game() #function to be able to play the game
 
